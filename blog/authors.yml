@@ -1,0 +1,11 @@
+wolfgang:
+  name: Wolfgang Born
+  title: Software Engineer
+  url: https://wolfgangborn.com
+  image_url: https://github.com/wolfgangborn.png
+  page:
+    permalink: "/all-wolfgang-born-articles"
+  socials:
+    x: dracon64
+    linkedin: wolfgangborn
+    github: wolfgangbo

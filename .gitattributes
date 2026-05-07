@@ -1,0 +1,36 @@
+# 1. Handle all text files with auto-detection. 
+# Normalizes to LF in the repo, but checks out with OS-native endings by default.
+* text=auto
+
+# 2. Force CRLF for legacy Windows-centric files.
+# Visual Studio (Windows) expects these to be CRLF. 
+# Forcing this prevents "dirty" diffs and potential parsing errors.
+*.sln       text eol=crlf
+*.slnx      text eol=crlf
+*.csproj    text eol=crlf
+*.vbproj    text eol=crlf
+*.fsproj    text eol=crlf
+*.props     text eol=crlf
+*.targets   text eol=crlf
+
+# 3. Force LF for Unix-specific files.
+# Shell scripts will break on Linux if they have CRLF endings.
+*.sh        text eol=lf
+*.bash      text eol=lf
+
+# 4. Specific handling for C# source code.
+# Ensures Git knows how to properly diff C# code while letting it be 
+# native (LF on Linux, CRLF on Windows) via the 'text' attribute.
+*.cs        text diff=csharp
+*.cshtml    text diff=html
+*.config    text
+
+# 5. Mark binary files to prevent accidental normalization.
+*.png       binary
+*.jpg       binary
+*.jpeg      binary
+*.gif       binary
+*.ico       binary
+*.dll       binary
+*.pdb       binary
+

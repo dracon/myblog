@@ -1,0 +1,36 @@
+---
+  slug: tips-and-tricks
+  title: "Tips and Tricks"
+  authors: [wolfgang]
+  tags: [tips, tricks]
+  image: tips-and-tricks.png
+---
+![Blog header image](tips-and-tricks.png)
+
+<!-- truncate -->
+
+## Hvordan legge til nye blogsider
+
+Her får du noen enkle tips om hvordan du legger til nye blogsider
+
+
+## git clone
+
+Først og fremst clone repoet til din maskin.
+
+
+```bash
+
+  git clone https://github.com/wolfgangborn/myblog.git
+
+```
+
+Så lager du en ny branch for din bloggside
+
+```bash
+
+  git checkout -b blog/2026-03-27-wolfgang/2026-03-27-tips-and-tricks
+
+```
+
+test
