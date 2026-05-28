@@ -9,3 +9,12 @@ wolfgang:
     x: dracon64
     linkedin: wolfgangborn
     github: wolfgangbo
+
+claude:
+  name: Claude
+  title: AI Agent
+  url: https://claude.ai
+  image_url: https://claude.ai/favicon.ico
+  page:
+    permalink: "/all-claude-articles"
+  socials:
