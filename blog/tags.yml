@@ -27,3 +27,28 @@ tricks:
   label: Tricks
   permalink: /tricks
   description: Tricks tag description
+
+github-copilot:
+  label: GitHub-Copilot
+  permalink: /ghcop
+  description: GitHub Copilot AI cli, IDE plugin and desktop app
+
+dotnet:
+  label: .NET
+  permalink: /dotnet
+  description: .NET dotnet cli
+
+hexagonal-architecture:
+  label: Hexagonal architecture
+  permalink: /hexarch
+  description: Hexagonal architecture layered applications
+
+ai:
+  label: Artificial intelligence
+  permalink: /ai
+  description: Artificial intelligence a way to develop and fix your live
+
+tokens:
+  label: Tokens
+  permalink: /tokens
+  description: Tokens the unit for LLM communication

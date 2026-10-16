@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test.describe('Homepage', () => {
   test('should load homepage', async ({ page }) => {
     await page.goto('/');
-    expect(page).toHaveTitle(/My Site/);
+    await expect(page).toHaveTitle(/My Site/);
   });
 
   test('should display hero section', async ({ page }) => {
@@ -26,7 +26,7 @@ test.describe('Homepage', () => {
 
   test('should display feature cards', async ({ page }) => {
     await page.goto('/');
-    const features = page.locator('section.features');
+    const features = page.locator('section[class*="features"]');
     await expect(features).toBeVisible();
     
     const featureItems = page.locator('div.col--4');
@@ -59,7 +59,7 @@ test.describe('Responsive Design', () => {
   test('should be responsive on tablet', async ({ page }) => {
     await page.setViewportSize({ width: 768, height: 1024 });
     await page.goto('/');
-    const features = page.locator('section.features');
+    const features = page.locator('section[class*="features"]');
     await expect(features).toBeVisible();
   });
 });
