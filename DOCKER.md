@@ -40,6 +40,35 @@ docker stop myblog
 docker rm myblog
 ```
 
+## Playwright Tests in Docker
+
+Playwright does not officially support all Linux distributions (e.g. Arch-based
+distros like CachyOS), so tests run inside an Ubuntu-based container with the
+browsers preinstalled.
+
+- **Dockerfile.playwright** – Official `mcr.microsoft.com/playwright` image + pnpm
+- **docker-compose.test.yaml** – Test container: installs dependencies, starts the
+  Docusaurus dev server (Playwright `webServer`), and runs the tests
+
+Everything runs in one container, so no config for browser installation is needed.
+
+```bash
+# Run all tests (chromium, firefox, webkit)
+npm run test:docker
+
+# Run a single spec
+docker compose -f docker-compose.test.yaml run --rm playwright pnpm exec playwright test tests/homepage.spec.ts
+
+# Run one browser project
+docker compose -f docker-compose.test.yaml run --rm playwright pnpm exec playwright test --project=chromium
+```
+
+- The HTML report is written to `playwright-report/` and traces to `test-results/`
+- Installed dependencies are cached in the `playwright-node-modules` volume;
+  delete it (`docker volume rm myblog_playwright-node-modules`) to reinstall
+- Keep the image tag in `Dockerfile.playwright` in sync with `@playwright/test`
+  in `package.json`
+
 ## Image Size
 
 - **Uncompressed**: ~97.7 MB

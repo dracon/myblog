@@ -1,0 +1,6 @@
+# Ubuntu-based Playwright image with browsers preinstalled.
+# Keep the version in sync with @playwright/test in package.json.
+FROM mcr.microsoft.com/playwright:v1.64.1-noble
+
+# pnpm to match the project's lockfile (pnpm-lock.yaml)
+RUN npm install -g pnpm@12.14.0

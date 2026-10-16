@@ -1,0 +1,23 @@
+services:
+  playwright:
+    build:
+      context: .
+      dockerfile: Dockerfile.playwright
+    image: myblog-playwright
+    working_dir: /work
+    init: true
+    ipc: host
+    volumes:
+      - .:/work
+      - playwright-node-modules:/work/node_modules
+    environment:
+      PW_TEST_HTML_REPORT_OPEN: never
+    entrypoint:
+      - sh
+      - -c
+      - 'pnpm install --frozen-lockfile && exec "$@"'
+      - --
+    command: ["pnpm", "exec", "playwright", "test"]
+
+volumes:
+  playwright-node-modules:
